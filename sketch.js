@@ -1,7 +1,7 @@
 let INCREMENT = 0.05;
 
 let slidingImage;
-let DIM = 4;
+let DIM = 8;
 
 let w;
 
@@ -14,11 +14,14 @@ let i = 0;
 
 function preload() {
   // slidingImage = loadImage("numbers.png");
-  slidingImage = loadImage("duck.png");
+  // slidingImage = loadImage("duck.png");
+  // slidingImage = loadImage("cartoon.webp");
+  slidingImage = loadImage("Radak.png");
+  // slidingImage = loadImage("turquoise.png");
 }
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(800, 800);
 
   w = width / DIM;
   let imgw = slidingImage.width / DIM;
@@ -34,6 +37,7 @@ function setup() {
         imgw,
         imgw,
       ),
+      i
     );
 
     squares.push(square);
@@ -57,7 +61,7 @@ function draw() {
   if (shuffling && !squares.some((square) => square.animating)) {
     shuffleSquares(squares);
     i++;
-    if (i >= 100) {
+    if (i >= 500) {
       shuffling = false;
       INCREMENT = 0.05;
       i = 0;
@@ -73,7 +77,7 @@ function draw() {
 function keyPressed() {
   if (key === "s" && !squares.some((square) => square.animating)) {
     shuffling = true;
-    INCREMENT = 0.5;
+    INCREMENT = 1;
   }
 }
 

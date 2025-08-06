@@ -1,8 +1,11 @@
 class Square {
-  constructor(x, y, w, img) {
+  constructor(x, y, w, img, i) {
     this.pos = createVector(x, y);
     this.dim = createVector(w, w);
     this.img = img;
+
+    this.i = i;
+
 
     this.animating = false;
   }
@@ -12,6 +15,12 @@ class Square {
     noFill();
     rect(this.pos.x, this.pos.y, this.dim.x, this.dim.y);
     image(this.img, this.pos.x, this.pos.y, this.dim.x, this.dim.y);
+
+    stroke(0);
+    fill(255);
+    textSize(20);
+    textAlign(CENTER);
+    text(this.i + 1, this.pos.x + 20, this.pos.y + 20);
     if (hovering) {
       noStroke();
       fill(220, 100);
